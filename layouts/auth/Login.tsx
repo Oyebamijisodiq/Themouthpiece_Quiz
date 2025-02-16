@@ -28,7 +28,7 @@ const Login = () => {
     setLoading(true);
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      toast.success('Logged in successfully');
+      toast.success("Logged in successfully");
       router.push("/quiz");
     } catch (error) {
       const err = error as Error;

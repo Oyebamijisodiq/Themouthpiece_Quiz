@@ -32,14 +32,6 @@ const Quiz = () => {
     resetQuiz,
   } = useQuizStore();
 
-  useEffect(() => {
-    if (!loading && !user) {
-      router.replace("/");
-    } else if (user) {
-      checkQuizStatus();
-    }
-  }, [user, loading, router]);
-
   const saveScore = async () => {
     if (user) {
       await updateDoc(doc(db, "users", user.uid), {
@@ -47,6 +39,12 @@ const Quiz = () => {
         score: ((score / questions.length) * 100).toFixed(2),
       });
     }
+  };
+
+  const handleLogout = async () => {
+    await signOut(auth);
+    toast.success("Logged out successfully");
+    router.replace("/");
   };
 
   const checkQuizStatus = async () => {
@@ -61,6 +59,14 @@ const Quiz = () => {
       }
     }
   };
+
+  useEffect(() => {
+    if (!loading && !user) {
+      router.replace("/");
+    } else if (user) {
+      checkQuizStatus();
+    }
+  }, [user, loading, router]);
 
   useEffect(() => {
     const handleBeforeUnload = (e: BeforeUnloadEvent) => {
@@ -80,16 +86,12 @@ const Quiz = () => {
     }
   }, [timeLeft, submitQuiz]);
 
-  const handleLogout = async () => {
-    await signOut(auth);
-    toast.success("Logged out successfully");
-    router.replace("/");
-  };
-
   const answeredQuestionsCount = questions.filter(
     (q) => q.selectedAnswer
   ).length;
-  const progressPercentage = (answeredQuestionsCount / questions.length) * 100;
+  const progressPercentage = Math.round(
+    (answeredQuestionsCount / questions.length) * 100
+  );
 
   if (loading) return <Loading />;
 

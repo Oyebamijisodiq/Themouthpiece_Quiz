@@ -19,7 +19,7 @@ const QuizCompleted = ({
   handleLogout: () => void;
 }) => {
   return (
-    <div className="flex justify-center items-center h-screen">
+    <div className="flex justify-center items-center h-screen bg-[#60e1e0]">
       <Card className="w-full max-w-lg mx-auto mt-1">
         <CardHeader>
           <CardTitle className="text-2xl font-bold text-center">

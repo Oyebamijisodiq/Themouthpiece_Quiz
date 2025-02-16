@@ -3,14 +3,14 @@ import React from "react";
 
 const Welcome = () => {
   return (
-    <div className="hidden lg:flex lg:w-1/2 bg-blue-100 flex-col justify-center items-center p-8">
+    <div className="hidden lg:flex lg:w-1/2 bg-[#60e1e0] flex-col justify-center items-center p-8">
       <h1 className="text-3xl font-bold mb-4 text-center">
         The Mouthpiece Techsphere
       </h1>
       <p className="text-lg mb-6 text-center">Get ready to be assessed!</p>
       <div className="grid grid-cols-1 gap-6 w-full max-w-md">
         <div className="flex items-center bg-white p-4 rounded-lg shadow">
-          <BookOpen className="h-8 w-8 text-blue-500 mr-4" />
+          <BookOpen className="h-8 w-8 text-[#131eff] mr-4" />
           <div>
             <h3 className="font-semibold">Comprehensive Questions</h3>
             <p className="text-sm text-gray-600">
@@ -19,7 +19,7 @@ const Welcome = () => {
           </div>
         </div>
         <div className="flex items-center bg-white p-4 rounded-lg shadow">
-          <Clock className="h-8 w-8 text-blue-500 mr-4" />
+          <Clock className="h-8 w-8 text-[#131eff] mr-4" />
           <div>
             <h3 className="font-semibold">Timed Assessments</h3>
             <p className="text-sm text-gray-600">
@@ -28,7 +28,7 @@ const Welcome = () => {
           </div>
         </div>
         <div className="flex items-center bg-white p-4 rounded-lg shadow">
-          <Award className="h-8 w-8 text-blue-500 mr-4" />
+          <Award className="h-8 w-8 text-[#131eff] mr-4" />
           <div>
             <h3 className="font-semibold">Instant Results</h3>
             <p className="text-sm text-gray-600">Get your score immediately</p>
