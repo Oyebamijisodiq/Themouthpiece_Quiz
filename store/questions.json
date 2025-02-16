@@ -1,0 +1,156 @@
+[
+  {
+    "id": 1,
+    "question": "What is the next number in the sequence? 2, 6, 12, 20, __?",
+    "options": ["24", "30", "36", "42"],
+    "correctAnswer": "30"
+  },
+  {
+    "id": 2,
+    "question": "Which of the following is NOT a JavaScript framework?",
+    "options": ["React", "Angular", "Django", "Vue"],
+    "correctAnswer": "Django"
+  },
+  {
+    "id": 3,
+    "question": "If a train travels at 60 km/h for 2.5 hours, how far does it travel?",
+    "options": ["120 km", "140 km", "150 km", "180 km"],
+    "correctAnswer": "150 km"
+  },
+  {
+    "id": 4,
+    "question": "Which of these is a frontend development tool?",
+    "options": ["Node.js", "Django", "React", "Express.js"],
+    "correctAnswer": "React"
+  },
+  {
+    "id": 5,
+    "question": "Which of the following is a cryptocurrency?",
+    "options": ["Bitcoin", "Dollar", "Pounds", "Naira"],
+    "correctAnswer": "Bitcoin"
+  },
+  {
+    "id": 6,
+    "question": "Complete the sentence: 'The quick brown fox ___ over the lazy dog.'",
+    "options": ["jump", "jumps", "jumping", "jumped"],
+    "correctAnswer": "jumps"
+  },
+  {
+    "id": 7,
+    "question": "What is the capital of France?",
+    "options": ["London", "Berlin", "Madrid", "Paris"],
+    "correctAnswer": "Paris"
+  },
+  {
+    "id": 8,
+    "question": "What is 15% of 200?",
+    "options": ["25", "30", "35", "40"],
+    "correctAnswer": "30"
+  },
+  {
+    "id": 9,
+    "question": "Which of these is used for web scraping?",
+    "options": ["Pandas", "NumPy", "BeautifulSoup", "TensorFlow"],
+    "correctAnswer": "BeautifulSoup"
+  },
+  {
+    "id": 10,
+    "question": "Who is the founder of Tesla?",
+    "options": ["Jeff Bezos", "Bill Gates", "Elon Musk", "Steve Jobs"],
+    "correctAnswer": "Elon Musk"
+  },
+  {
+    "id": 11,
+    "question": "What is 7 × 8?",
+    "options": ["42", "48", "54", "56"],
+    "correctAnswer": "56"
+  },
+  {
+    "id": 12,
+    "question": "Which programming language is primarily used for data analysis?",
+    "options": ["JavaScript", "Python", "C#", "PHP"],
+    "correctAnswer": "Python"
+  },
+  {
+    "id": 13,
+    "question": "What is the currency used in Japan?",
+    "options": ["Yuan", "Won", "Yen", "Ringgit"],
+    "correctAnswer": "Yen"
+  },
+  {
+    "id": 14,
+    "question": "Which of these is an example of automation?",
+    "options": [
+      "Writing emails manually",
+      "Using Excel sheets",
+      "Web scraping with Python",
+      "Handwritten reports"
+    ],
+    "correctAnswer": "Web scraping with Python"
+  },
+  {
+    "id": 15,
+    "question": "What is the square root of 144?",
+    "options": ["10", "11", "12", "14"],
+    "correctAnswer": "12"
+  },
+  {
+    "id": 16,
+    "question": "Which of the following is an AI language model?",
+    "options": ["GPT-4", "Windows", "Java", "Firebase"],
+    "correctAnswer": "GPT-4"
+  },
+  {
+    "id": 17,
+    "question": "Which of these helps improve website usability?",
+    "options": [
+      "UI/UX design",
+      "Debugging",
+      "Back-end development",
+      "SQL queries"
+    ],
+    "correctAnswer": "UI/UX design"
+  },
+  {
+    "id": 18,
+    "question": "Which company owns the Android operating system?",
+    "options": ["Apple", "Microsoft", "Google", "Samsung"],
+    "correctAnswer": "Google"
+  },
+  {
+    "id": 19,
+    "question": "Which language is used in AutoCAD for automation?",
+    "options": ["Python", "Lisp", "Java", "C++"],
+    "correctAnswer": "Lisp"
+  },
+  {
+    "id": 20,
+    "question": "What is the main purpose of academic writing?",
+    "options": ["Entertaining", "Persuading", "Informing", "Selling"],
+    "correctAnswer": "Informing"
+  },
+  {
+    "id": 21,
+    "question": "Which Forex trading term means closing a trade at a predefined loss?",
+    "options": ["Stop-loss", "Take-profit", "Leverage", "Pip"],
+    "correctAnswer": "Stop-loss"
+  },
+  {
+    "id": 22,
+    "question": "What is the missing number in the sequence? 3, 6, 12, 24, __?",
+    "options": ["36", "42", "48", "60"],
+    "correctAnswer": "48"
+  },
+  {
+    "id": 23,
+    "question": "Which of these is NOT a data analysis tool?",
+    "options": ["Excel", "Power BI", "NumPy", "Photoshop"],
+    "correctAnswer": "Photoshop"
+  },
+  {
+    "id": 24,
+    "question": "Which of these is a valid CSS unit?",
+    "options": ["px", "cm", "vw", "All of the above"],
+    "correctAnswer": "All of the above"
+  }
+]
