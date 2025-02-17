@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
-import { QuizState } from "@/interfaces";
+import type { QuizState } from "@/interfaces";
 import data from "./questions.json";
 
 export const useQuizStore = create<QuizState>()(
@@ -45,14 +45,17 @@ export const useQuizStore = create<QuizState>()(
       },
 
       startTimer: () => {
+        const startTime = Date.now();
         const timerId = window.setInterval(() => {
-          set((state) => {
-            if (state.timeLeft <= 1) {
-              clearInterval(state.timerId!);
+          const elapsedSeconds = Math.floor((Date.now() - startTime) / 1000);
+          set(() => {
+            const newTimeLeft = Math.max(720 - elapsedSeconds, 0);
+            if (newTimeLeft <= 0) {
+              clearInterval(timerId);
               get().submitQuiz();
               return { timeLeft: 0, timerId: null };
             }
-            return { timeLeft: state.timeLeft - 1 };
+            return { timeLeft: newTimeLeft };
           });
         }, 1000);
         set({ timerId });

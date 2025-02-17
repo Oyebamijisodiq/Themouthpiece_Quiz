@@ -8,7 +8,9 @@ import {
 } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { QuizAppProps } from "@/interfaces";
+import { formatTime } from "@/utils/functions";
 import { Clock } from "lucide-react";
+import { useEffect, useState } from "react";
 
 const QuizApp: React.FC<QuizAppProps> = ({
   timeLeft,
@@ -21,18 +23,23 @@ const QuizApp: React.FC<QuizAppProps> = ({
   nextQuestion,
   submitQuiz,
 }) => {
+  const [displayTime, setDisplayTime] = useState(timeLeft);
+
+  useEffect(() => {
+    setDisplayTime(timeLeft);
+  }, [timeLeft]);
+
   return (
-    <div className="flex justify-center items-center h-screen bg-[#60e1e0]">
-      <Card className="w-full max-w-lg mx-auto mt-1">
+    <div className="flex justify-center items-center h-dvh bg-[#60e1e0] px-3">
+      <Card className="w-full max-w-lg mx-auto">
         <CardHeader>
-          <CardTitle className="text-2xl font-bold">Quiz Assessment</CardTitle>
+          <CardTitle className="text-xl md:text-2xl font-bold">
+            Quiz Assessment
+          </CardTitle>
           <div className="flex justify-between items-center mt-2">
             <div className="flex items-center space-x-2">
-              <Clock className="h-5 w-5 text-blue-500" />
-              <p>
-                {Math.floor(timeLeft / 60)}:
-                {(timeLeft % 60).toString().padStart(2, "0")}
-              </p>
+              <Clock className="h-4 md:h-5 w-4 md:w-5 text-blue-500" />
+              <p>{formatTime(displayTime)}</p>
             </div>
             <p>
               Question {currentQuestionIndex + 1} of {questions.length}
@@ -41,7 +48,7 @@ const QuizApp: React.FC<QuizAppProps> = ({
           <Progress value={progressPercentage} className="w-full mt-4" />
         </CardHeader>
         <CardContent>
-          <p className="text-lg mb-4">{currentQuestion.question}</p>
+          <p className="md:text-lg mb-3 md:mb-4">{currentQuestion.question}</p>
           <div className="space-y-2">
             {currentQuestion.options.map((option) => (
               <Button

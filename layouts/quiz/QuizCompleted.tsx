@@ -19,17 +19,17 @@ const QuizCompleted = ({
   handleLogout: () => void;
 }) => {
   return (
-    <div className="flex justify-center items-center h-screen bg-[#60e1e0]">
-      <Card className="w-full max-w-lg mx-auto mt-1">
+    <div className="flex justify-center items-center h-dvh bg-[#60e1e0] px-3">
+      <Card className="w-full max-w-lg mx-auto">
         <CardHeader>
-          <CardTitle className="text-2xl font-bold text-center">
+          <CardTitle className="text-lg md:text-2xl font-bold text-center">
             Quiz Completed!
           </CardTitle>
         </CardHeader>
         <CardContent>
           <div className="flex items-center justify-center space-x-2 mb-4">
-            <CheckCircle2 className="h-8 w-8 text-green-500" />
-            <p className="text-xl font-medium">
+            <CheckCircle2 className="h-6 md:h-8 w-6 md:w-8 text-green-500" />
+            <p className="md:text-xl font-medium">
               Your Score: {((score / totalQuestions) * 100).toFixed(2)}%
             </p>
           </div>

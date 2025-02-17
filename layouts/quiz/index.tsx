@@ -12,10 +12,12 @@ import LoadingQuestions, { Loading } from "./LoadingQuestions";
 import QuizCompleted from "./QuizCompleted";
 import QuizApp from "./QuizApp";
 import toast from "react-hot-toast";
+import { MAX_WARNINGS, WARNING_TIMEOUT } from "./constants";
 
 const Quiz = () => {
   const [user, loading] = useAuthState(auth);
   const [quizTaken, setQuizTaken] = useState(false);
+  const [warnings, setWarnings] = useState(0);
   const router = useRouter();
   const {
     questions,
@@ -66,19 +68,41 @@ const Quiz = () => {
     } else if (user) {
       checkQuizStatus();
     }
-  }, [user, loading, router]);
+  }, [user, loading, router]); // Removed checkQuizStatus from dependencies
 
   useEffect(() => {
-    const handleBeforeUnload = (e: BeforeUnloadEvent) => {
-      e.preventDefault();
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        setWarnings((prev) => prev + 1);
+        toast.error(
+          `Warning: You've left the quiz page. (${
+            warnings + 1
+          }/${MAX_WARNINGS})`,
+          {
+            duration: WARNING_TIMEOUT,
+          }
+        );
+
+        if (warnings + 1 >= MAX_WARNINGS) {
+          submitQuiz();
+          toast.error("Quiz auto-submitted due to multiple warnings.");
+        }
+      }
     };
 
+    const handleBeforeUnload = (e: BeforeUnloadEvent) => {
+      e.preventDefault();
+      e.returnValue = "";
+    };
+
+    document.addEventListener("visibilitychange", handleVisibilityChange);
     window.addEventListener("beforeunload", handleBeforeUnload);
 
     return () => {
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
       window.removeEventListener("beforeunload", handleBeforeUnload);
     };
-  }, []);
+  }, [warnings, submitQuiz]);
 
   useEffect(() => {
     if (timeLeft === 0) {
