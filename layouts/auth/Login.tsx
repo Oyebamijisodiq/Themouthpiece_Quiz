@@ -19,6 +19,7 @@ import Image from "next/image";
 
 const Login = () => {
   const [email, setEmail] = useState("");
+  const [show, setShow] = useState(false);
   const [password, setPassword] = useState("");
   const router = useRouter();
   const [loading, setLoading] = useState(false);
@@ -31,8 +32,8 @@ const Login = () => {
       toast.success("Logged in successfully");
       router.push("/quiz");
     } catch (error) {
-      const err = error as Error;
-      toast.error(err?.message);
+      console.error(error);
+      toast.error("Invalid credentials!");
     } finally {
       setLoading(false);
     }
@@ -61,13 +62,23 @@ const Login = () => {
               onChange={(e) => setEmail(e.target.value)}
               required
             />
-            <Input
-              type="password"
-              placeholder="Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
+
+            <div className="relative">
+              <Input
+                type={show ? "text" : "password"}
+                placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+              <button
+                type="button"
+                onClick={() => setShow((prev) => !prev)}
+                className="absolute top-[30%] right-3 text-xs"
+              >
+                {show ? "HIDE" : "SHOW"}
+              </button>
+            </div>
           </CardContent>
           <CardFooter className="flex flex-col space-y-4">
             <Button disabled={loading} type="submit" className="w-full">
